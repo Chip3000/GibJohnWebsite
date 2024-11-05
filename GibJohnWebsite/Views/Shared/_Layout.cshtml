@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Home</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GibJohnWebsite.styles.css" asp-append-version="true" />
+</head>
+
+<style>
+    body{
+        background-color: #f7eed3;
+    }
+</style>
+
+<body>
+    <header>
+        <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-color-#8e604a border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="footer" class="border-top footer text-muted">
+        <div class="text-end">
+            <a href="~/Home/Support" class="btn btn-primary support-button">Get Support</a>
+        </div>
+        <p>
+            &copy; 2024 - GibJohnWebsite
+        </p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+<style>
+    #footer {
+        text-align: right;
+        padding-right: 20px;
+        padding-left: 20px;
+        position: fixed;
+        bottom: 0;
+        background-color: #8e604a;
+        width: 100%;
+    }
+
+        #footer > p {
+            margin: 5px;
+            margin-bottom: 15px;
+            padding: 2px;
+            line-height: 0;
+            color: black;
+        }
+
+        #footer > div > a {
+            background-color: #aab396;
+            border-color: #919581;
+            border-width: 4px;
+            border-style: solid;
+            padding: 10px 15px;
+            color: black;
+        }
+
+            #footer > div > a:hover {
+                transition: 1s ease-in;
+                background-color: #919581;
+                color: white;
+            }
+
+    #navbar {
+        background-color: #8e604a;
+    }
+
+</style>
+</html>
