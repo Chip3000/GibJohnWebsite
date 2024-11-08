@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GibJohnWebsite.Data;
 using GibJohnWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GibJohnWebsite.Controllers
 {
@@ -20,6 +21,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: AddLessonClasses
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.AddLessonClass.ToListAsync());
@@ -86,6 +88,7 @@ namespace GibJohnWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Time,Tutor")] AddLessonClass addLessonClass)
         {
             if (id != addLessonClass.Id)
@@ -153,5 +156,7 @@ namespace GibJohnWebsite.Controllers
         {
             return _context.AddLessonClass.Any(e => e.Id == id);
         }
+
+        
     }
 }
