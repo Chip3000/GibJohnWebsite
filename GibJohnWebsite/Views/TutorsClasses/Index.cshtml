@@ -9,6 +9,10 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<!--
+    Assembles the table on the web page
+-->
 <table class="table">
     <thead>
         <tr>
@@ -28,6 +32,10 @@
         </tr>
     </thead>
     <tbody>
+
+        <!--
+            Puts in data thats inside the database onto the webpage table
+        -->
 @foreach (var item in Model) {
         <tr>
             <td>
