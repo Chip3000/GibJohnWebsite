@@ -1,41 +1,110 @@
-﻿
-<!--
+﻿<!--
     Home page
 -->
 @{
     ViewData["Title"] = "GibJohn Tutoring - Home";
 }
-<h1 class="display-4">Welcome to GibJohn Tutoring!</h1>
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Ante eget nostra sodales gravida eros inceptos netus. Laoreet fames pulvinar ad aptent blandit rhoncus. Imperdiet metus nullam nostra lectus; enim eleifend. Adipiscing aenean nullam nibh senectus lacus eleifend cras nibh enim. Finibus adipiscing montes ut auctor ipsum suspendisse diam. Adipiscing nulla erat vehicula volutpat fames tempus ridiculus. Fermentum torquent ipsum nisl; phasellus lobortis eu consequat.
-        </section>
+
+<body>
+    <h1 class="display-4">Welcome to GibJohn Tutoring!</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-12 mb-4">
+            <img src="https://i.imgur.com/eOqhfIM.png" class="img-fluid rounded-banner" alt="GibJohn Tutoring Banner">
+        </div>
     </div>
-    <div class="col-md-6">
-        <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Ante eget nostra sodales gravida eros inceptos netus. Laoreet fames pulvinar ad aptent blandit rhoncus. Imperdiet metus nullam nostra lectus; enim eleifend.
-        </section>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-4">
+            <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
+                <img src="https://via.placeholder.com/250.png?text=Tutoring+Image" class="img-fluid float-left mr-3" alt="Tutoring">
+                <p>At GibJohn Tutoring, we focus on sharpening the minds of the future in the comfort of their very own home. We supply a number of different courses ranging from maths, English, sciences, philosophy.</p>
+            </section>
+        </div>
+        <div class="col-md-6 mb-4">
+            <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
+                <img src="https://via.placeholder.com/250.png?text=Learning+Environment" class="img-fluid float-left mr-3" alt="Learning Environment">
+                <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Ante eget nostra sodales gravida eros inceptos netus. Laoreet fames pulvinar ad aptent blandit rhoncus. Imperdiet metus nullam nostra lectus; enim eleifend.</p>
+            </section>
+        </div>
     </div>
-</div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6 mb-4">
+            <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
+                <h2>Our Courses</h2>
+                <img src="https://via.placeholder.com/250.png?text=Courses" class="img-fluid float-left mr-3" alt="Courses">
+                <p>We offer personalized tutoring in a variety of subjects, including:</p>
+                <ul>
+                    <li>Mathematics (Algebra, Geometry, Calculus)</li>
+                    <li>English Language and Literature</li>
+                    <li>Science (Biology, Chemistry, Physics)</li>
+                    <li>Philosophy and Critical Thinking</li>
+                    <li>Test Preparation (SAT, ACT, etc.)</li>
+                </ul>
+            </section>
+        </div>
+        <div class="col-md-6 mb-4">
+            <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
+                <h2>Why Choose Us?</h2>
+                <img src="https://via.placeholder.com/250.png?text=Why+Choose+Us" class="img-fluid float-left mr-3" alt="Why Choose Us">
+                <p>At GibJohn Tutoring, we pride ourselves on:</p>
+                <ul>
+                    <li>Experienced and qualified tutors</li>
+                    <li>Customized lesson plans tailored to each student’s needs</li>
+                    <li>Flexible scheduling to fit your busy lifestyle</li>
+                    <li>Ongoing progress tracking and feedback</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6 mb-4">
+            <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
+                <h2>Testimonials</h2>
+                <img src="https://via.placeholder.com/250.png?text=Testimonials" class="img-fluid float-left mr-3" alt="Testimonials">
+                <p>"GibJohn Tutoring has transformed my son's confidence in math. His grades have improved significantly!" - Sarah T.</p>
+                <p>"The personalized approach really helped my daughter excel in her English studies. Highly recommend!" - Mark L.</p>
+            </section>
+        </div>
+    </div>
+</body>
+
 
 <style>
     /*
-    Sets style for boxes on the home page
-    */
+            Sets style for boxes on the home page
+            */
 
     #rounded-box {
         border-radius: 20px;
         background-color: #8e604a;
-        padding:20px;
-        font-size:20px;
+        padding: 20px;
+        font-size: 20px;
     }
 
     /*
-    Centers the welcome message
-    */
+            Centers the welcome message
+            */
 
     h1 {
-        text-align:center;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 20px;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    .rounded-banner {
+        border-radius: 5%;
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+        margin-left: 4%;
+        max-width: auto;
+        height: auto;
     }
 </style>
