@@ -9,49 +9,51 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tutor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
+<div class="rounded-rectangle">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tutor)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
             @foreach (var item in Model)
             {
-        <tr>
+                <tr>
                     <td class="column-section">
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
                     <td class="column-section">
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
                     <td class="column-section">
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
                     <td class="column-section">
-                @Html.DisplayFor(modelItem => item.Tutor)
-            </td>
+                        @Html.DisplayFor(modelItem => item.Tutor)
+                    </td>
                     <td class="column-section">
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 <style>
