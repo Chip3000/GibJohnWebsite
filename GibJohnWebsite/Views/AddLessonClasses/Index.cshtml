@@ -28,21 +28,22 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+            @foreach (var item in Model)
+            {
         <tr>
-            <td>
+                    <td class="column-section">
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
+                    <td class="column-section">
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td>
+                    <td class="column-section">
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
-            <td>
+                    <td class="column-section">
                 @Html.DisplayFor(modelItem => item.Tutor)
             </td>
-            <td>
+                    <td class="column-section">
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -51,3 +52,27 @@
 }
     </tbody>
 </table>
+</div>
+
+<style>
+    .rounded-rectangle {
+        border: 3px solid #604132;
+        border-radius: 15px;
+        padding: 20px;
+        background-color: #8e604a;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th {
+        background-color: #007bff;
+        color: black;
+    }
+
+    .column-section {
+        border: 3px solid #919581 !important;
+    }
+
+    tr .column-section {
+        background-color: #aab396;
+    }
+</style>
