@@ -36,6 +36,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Must be before UseAuthorization
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -56,7 +57,7 @@ async Task SeedRoles(IServiceProvider serviceProvider)
 {
     var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-    string[] roleNames = { "Student", "Admin", "User ", "HRManager", "Finance" };
+    string[] roleNames = { "Admin", "Tutor", "Student"};
     IdentityResult roleResult;
 
     foreach (var roleName in roleNames)
