@@ -1,51 +1,55 @@
 ﻿@model IEnumerable<GibJohnWebsite.Models.AddLessonClass>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lessons"; // Sets the title of the page
 }
 
-<h1>Index</h1>
+<h1>Lessons</h1> <!-- Main heading for the page -->
 
 <p>
+    <!-- Link to create a new lesson class -->
     <a asp-action="Create">Create New</a>
 </p>
 
 <div class="rounded-rectangle">
+    <!-- Container with rounded corners -->
     <table class="table">
+        <!-- Start of the table -->
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Title)
+                    @Html.DisplayNameFor(model => model.Title) <!-- Column header for Title -->
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Description)
+                    @Html.DisplayNameFor(model => model.Description) <!-- Column header for Description -->
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Time)
+                    @Html.DisplayNameFor(model => model.Time) <!-- Column header for Time -->
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Tutor)
+                    @Html.DisplayNameFor(model => model.Tutor) <!-- Column header for Tutor -->
                 </th>
-                <th></th>
+                <th></th> <!-- Empty header for action links -->
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model) // Loop through each item in the model
             {
                 <tr>
                     <td class="column-section">
-                        @Html.DisplayFor(modelItem => item.Title)
+                        @Html.DisplayFor(modelItem => item.Title) <!-- Display Title for the item -->
                     </td>
                     <td class="column-section">
-                        @Html.DisplayFor(modelItem => item.Description)
+                        @Html.DisplayFor(modelItem => item.Description) <!-- Display Description for the item -->
                     </td>
                     <td class="column-section">
-                        @Html.DisplayFor(modelItem => item.Time)
+                        @Html.DisplayFor(modelItem => item.Time) <!-- Display Time for the item -->
                     </td>
                     <td class="column-section">
-                        @Html.DisplayFor(modelItem => item.Tutor)
+                        @Html.DisplayFor(modelItem => item.Tutor) <!-- Display Tutor for the item -->
                     </td>
                     <td class="column-section">
+                        <!-- Action links for Edit, Details, and Delete -->
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                         <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -57,24 +61,28 @@
 </div>
 
 <style>
+    /* Styling for the container with rounded corners */
     .rounded-rectangle {
-        border: 3px solid #604132;
-        border-radius: 15px;
-        padding: 20px;
-        background-color: #8e604a;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 3px solid #604132; /* Border color and thickness */
+        border-radius: 15px; /* Rounded corners */
+        padding: 20px; /* Padding inside the container */
+        background-color: #8e604a; /* Background color for the container */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
     }
 
+    /* Table header styling */
     th {
-        background-color: #007bff;
-        color: black;
+        background-color: #007bff; /* Background color for table headers */
+        color: black; /* Text color for table headers */
     }
 
+    /* Styling for each column section in the table */
     .column-section {
-        border: 3px solid #919581 !important;
+        border: 3px solid #919581 !important; /* Border color and thickness for columns */
     }
 
+    /* Background color for the column sections */
     tr .column-section {
-        background-color: #aab396;
+        background-color: #aab396; /* Background color for rows in the column sections */
     }
 </style>

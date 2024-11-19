@@ -2,36 +2,44 @@
     Home page
 -->
 @{
+    // Setting the title for the page dynamically using ViewData
     ViewData["Title"] = "GibJohn Tutoring - Home";
 }
 
 <body>
-    <h1 class="display-4">Welcome to GibJohn Tutoring!</h1>
+    <!-- Row for the banner image -->
     <div class="row justify-content-center">
-        <div class="col-md-12 mb-4">
-            <img src="https://i.imgur.com/eOqhfIM.png" class="img-fluid rounded-banner" alt="GibJohn Tutoring Banner">
+        <div class="col-md-12 mb-4 text-center">
+            <!-- Banner image with center alignment -->
+            <img src="https://i.imgur.com/eOqhfIM.png" class="img-fluid rounded-banner" alt="GibJohn Tutoring Banner" style="display: block; margin: 0 auto;"> <!-- Added style for block and margin -->
         </div>
     </div>
 
+    <!-- Row for the About Us section -->
     <div class="row justify-content-center">
         <div class="col-md-6 mb-4">
             <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
+                <h2>About Us</h2>
+                <!-- Image related to tutoring -->
                 <img src="https://via.placeholder.com/250.png?text=Tutoring+Image" class="img-fluid float-left mr-3" alt="Tutoring">
                 <p>At GibJohn Tutoring, we focus on sharpening the minds of the future in the comfort of their very own home. We supply a number of different courses ranging from maths, English, sciences, philosophy.</p>
             </section>
         </div>
         <div class="col-md-6 mb-4">
             <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
+                <!-- Image related to learning environment -->
                 <img src="https://via.placeholder.com/250.png?text=Learning+Environment" class="img-fluid float-left mr-3" alt="Learning Environment">
                 <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Ante eget nostra sodales gravida eros inceptos netus. Laoreet fames pulvinar ad aptent blandit rhoncus. Imperdiet metus nullam nostra lectus; enim eleifend.</p>
             </section>
         </div>
     </div>
 
+    <!-- Row for the Our Courses section -->
     <div class="row justify-content-center mt-4">
         <div class="col-md-6 mb-4">
             <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
                 <h2>Our Courses</h2>
+                <!-- Image related to courses -->
                 <img src="https://via.placeholder.com/250.png?text=Courses" class="img-fluid float-left mr-3" alt="Courses">
                 <p>We offer personalized tutoring in a variety of subjects, including:</p>
                 <ul>
@@ -46,6 +54,7 @@
         <div class="col-md-6 mb-4">
             <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
                 <h2>Why Choose Us?</h2>
+                <!-- Image related to the reasons for choosing the service -->
                 <img src="https://via.placeholder.com/250.png?text=Why+Choose+Us" class="img-fluid float-left mr-3" alt="Why Choose Us">
                 <p>At GibJohn Tutoring, we pride ourselves on:</p>
                 <ul>
@@ -58,12 +67,14 @@
         </div>
     </div>
 
+    <!-- Row for the Testimonials section -->
     <div class="row justify-content-center mt-4">
         <div class="col-md-6 mb-4">
             <section id="rounded-box" class="p-4 shadow-sm bg-#8e604a">
                 <h2>Testimonials</h2>
+                <!-- Image related to testimonials -->
                 <img src="https://via.placeholder.com/250.png?text=Testimonials" class="img-fluid float-left mr-3" alt="Testimonials">
-                <p>"GibJohn Tutoring has transformed my son's confidence in math. His grades have improved significantly!" - Sarah T.</p>
+                <p>"GibJohn Tutoring has transformed my son's confidence in math. His grades have improved significantly!"</p>
                 <p>"The personalized approach really helped my daughter excel in her English studies. Highly recommend!" - Mark L.</p>
             </section>
         </div>
@@ -74,37 +85,35 @@
 <style>
     /*
             Sets style for boxes on the home page
-            */
-
+        */
     #rounded-box {
-        border-radius: 20px;
-        background-color: #8e604a;
-        padding: 20px;
-        font-size: 20px;
+        border-radius: 20px; /* Rounds the corners of the box */
+        background-color: #8e604a; /* Background color for the box */
+        padding: 20px; /* Padding inside the box */
+        font-size: 20px; /* Font size for text inside the box */
     }
 
     /*
             Centers the welcome message
-            */
-
+        */
     h1 {
-        text-align: center;
+        text-align: center; /* Centers the text horizontally */
     }
 
     h2 {
-        margin-top: 20px;
+        margin-top: 20px; /* Adds top margin to h2 elements for spacing */
     }
 
     ul {
-        list-style-type: disc;
-        padding-left: 20px;
+        list-style-type: disc; /* Sets the list style to disc (bullet points) */
+        padding-left: 20px; /* Adds left padding to the list for indentation */
     }
 
     .rounded-banner {
-        border-radius: 5%;
+        border-radius: 5%; /* Rounds the corners of the banner image */
         object-fit: cover; /* Ensures the image covers the area without distortion */
-        margin-left: 4%;
-        max-width: auto;
-        height: auto;
+        margin-left: 4%; /* Adds left margin for positioning */
+        max-width: auto; /* Allows the image to scale automatically */
+        height: auto; /* Maintains the aspect ratio of the image */
     }
 </style>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GibJohnWebsite.Data;
 using GibJohnWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GibJohnWebsite.Controllers
 {
@@ -20,6 +21,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: TutorsClasses
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.TutorsClass.ToListAsync());
