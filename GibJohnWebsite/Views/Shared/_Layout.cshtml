@@ -28,11 +28,11 @@
                     <ul class="navbar-nav flex-grow-1">
                         <!-- Link to Add Lesson page -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark oval-button" asp-area="" asp-controller="AddLessonClasses" asp-action="Index">Add Lesson</a>
+                            <a class="nav-link text-dark oval-button" asp-area="" asp-controller="AddLessonClasses" asp-action="Index">Lessons</a>
                         </li>
                         <!-- Link to Add Tutor page -->
                         <li>
-                            <a class="nav-link text-dark oval-button" asp-area="" asp-controller="TutorsClasses" asp-action="Index">Add Tutor</a>
+                            <a class="nav-link text-dark oval-button" asp-area="" asp-controller="TutorsClasses" asp-action="Index">Tutors</a>
                         </li>
                     </ul>
 
@@ -143,5 +143,11 @@
         max-width: 70%; /* Set a max width for the logo to be responsive */
         height: auto; /* Maintain aspect ratio of the logo */
         z-index: 1; /* Lower z-index to place it behind the button */
+    }
+
+    @@media (max-width: 380px){
+        .footer-logo{
+            scale: 0;
+        }
     }
 </style>

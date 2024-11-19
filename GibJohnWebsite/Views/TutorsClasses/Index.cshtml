@@ -6,11 +6,6 @@
 
 <h1>Tutors</h1> <!-- Main heading for the page -->
 
-<p>
-    <!-- Link to create a new tutor -->
-    <a asp-action="Create">Create New</a>
-</p>
-
 <!--
     Assembles the table on the web page
 -->
@@ -56,10 +51,8 @@
                         @Html.DisplayFor(modelItem => item.Subject) <!-- Display Subject for the item -->
                     </td>
                     <td>
-                        <!-- Action links for Edit, Details, and Delete -->
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <!-- Action links for Details -->
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                     </td>
                 </tr>
             }

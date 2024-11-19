@@ -6,11 +6,6 @@
 
 <h1>Lessons</h1> <!-- Main heading for the page -->
 
-<p>
-    <!-- Link to create a new lesson class -->
-    <a asp-action="Create">Create New</a>
-</p>
-
 <div class="rounded-rectangle">
     <!-- Container with rounded corners -->
     <table class="table">
@@ -49,10 +44,8 @@
                         @Html.DisplayFor(modelItem => item.Tutor) <!-- Display Tutor for the item -->
                     </td>
                     <td class="column-section">
-                        <!-- Action links for Edit, Details, and Delete -->
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <!-- Action links for Details -->
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                     </td>
                 </tr>
             }
