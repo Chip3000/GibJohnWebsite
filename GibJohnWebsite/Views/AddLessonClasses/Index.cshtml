@@ -4,6 +4,33 @@
     ViewData["Title"] = "Lessons"; // Sets the title of the page
 }
 
+<style>
+    /* Styling for the container with rounded corners */
+    .rounded-rectangle {
+        border: 3px solid #604132; /* Border color and thickness */
+        border-radius: 15px; /* Rounded corners */
+        padding: 20px; /* Padding inside the container */
+        background-color: #8e604a; /* Background color for the container */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+    }
+
+    /* Table header styling */
+    th {
+        background-color: #007bff; /* Background color for table headers */
+        color: black; /* Text color for table headers */
+    }
+
+    /* Styling for each column section in the table */
+    .column-section {
+        border: 3px solid #919581 !important; /* Border color and thickness for columns */
+    }
+
+    /* Background color for the column sections */
+    tr .column-section {
+        background-color: #aab396; /* Background color for rows in the column sections */
+    }
+</style>
+
 <h1>Lessons</h1> <!-- Main heading for the page -->
 
 <div class="rounded-rectangle">
@@ -52,30 +79,3 @@
         </tbody>
     </table>
 </div>
-
-<style>
-    /* Styling for the container with rounded corners */
-    .rounded-rectangle {
-        border: 3px solid #604132; /* Border color and thickness */
-        border-radius: 15px; /* Rounded corners */
-        padding: 20px; /* Padding inside the container */
-        background-color: #8e604a; /* Background color for the container */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
-    }
-
-    /* Table header styling */
-    th {
-        background-color: #007bff; /* Background color for table headers */
-        color: black; /* Text color for table headers */
-    }
-
-    /* Styling for each column section in the table */
-    .column-section {
-        border: 3px solid #919581 !important; /* Border color and thickness for columns */
-    }
-
-    /* Background color for the column sections */
-    tr .column-section {
-        background-color: #aab396; /* Background color for rows in the column sections */
-    }
-</style>
