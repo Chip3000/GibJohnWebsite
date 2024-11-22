@@ -17,5 +17,6 @@ namespace GibJohnWebsite.Data
         public DbSet<GibJohnWebsite.Models.AddLessonClass> AddLessonClass { get; set; } = default!;
         public DbSet<GibJohnWebsite.Models.TutorsClass> TutorsClass { get; set; } = default!;
         public DbSet<GibJohnWebsite.Models.YourLessons> YourLessons { get; set; } = default!;
+        public DbSet<GibJohnWebsite.Models.CoursesClass> CoursesClass { get; set; } = default!;
     }
 }

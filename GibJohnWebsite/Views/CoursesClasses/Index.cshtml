@@ -1,0 +1,120 @@
+﻿@model IEnumerable<GibJohnWebsite.Models.CoursesClass>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    /* Styling for the container with rounded corners */
+    .rounded-rectangle {
+        border: 3px solid #604132; /* Border color and thickness */
+        border-radius: 15px; /* Rounded corners */
+        padding: 20px; /* Padding inside the container */
+        background-color: #8e604a; /* Background color for the container */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+        max-height: 1250px; /* Maximum height for the container */
+    }
+
+    /* Set the table width and center it */
+    .table {
+        width: 80%; /* Set the table width to 80% of its container */
+        margin: 0 auto; /* Center the table */
+    }
+
+    /* Table header styling */
+    th {
+        background-color: #007bff; /* Background color for table headers */
+        color: black; /* Text color for table headers */
+    }
+
+    /* Styling for the row to use Flexbox */
+    .flex-row {
+        display: flex; /* Enable Flexbox */
+        flex-wrap: wrap; /* Allow wrapping to the next line */
+        justify-content: space-between; /* Space out items evenly */
+    }
+
+    /* Styling for each column section in the table */
+    .column-section {
+        border: 3px solid #919581 !important; /* Border color and thickness for columns */
+        padding: 15px; /* Padding inside the cells */
+        margin: 5px; /* Margin between cells */
+        flex: 1 1 calc(30% - 10px); /* Flex properties to allow responsive behavior */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        text-align: center; /* Center the text */
+    }
+
+    /* Background color for the column sections */
+    tr .column-section {
+        background-color: #aab396; /* Background color for rows in the column sections */
+    }
+
+    /* Additional styling for the links */
+    .column-section a {
+        display: inline-block; /* Make links behave like blocks */
+        margin: 5px; /* Add margin around links */
+        padding: 10px; /* Add padding to links */
+        background-color: #007bff; /* Background color for links */
+        color: white; /* Text color for links */
+        border-radius: 5px; /* Rounded corners for links */
+        text-decoration: none; /* Remove underline from links */
+    }
+
+        .column-section a:hover {
+            background-color: #0056b3; /* Darker background on hover */
+        }
+
+    /* New styles for the table body */
+    .table-body {
+        max-height: 1200px; /* Set a specific height for the table body */
+        overflow-y: auto; /* Enable vertical scrolling */
+        display: block; /* Make it a block element */
+    }
+
+        /* Style for the table rows */
+        .table-body tr {
+            display: table; /* Maintain table layout */
+            width: 100%; /* Ensure full width */
+            table-layout: fixed; /* Prevent table from growing */
+        }
+</style>
+
+<h1>Courses</h1>
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New Lesson</a>
+    </p>
+}
+
+<div class="rounded-rectangle">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="table-body">
+            <tr>
+                <td colspan="2">
+                    <div class="flex-row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="column-section">
+                                @Html.DisplayFor(modelItem => item.Title)
+                                <br />
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        }
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
