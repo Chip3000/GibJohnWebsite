@@ -33,6 +33,13 @@
 
 <h1>Tutors</h1> <!-- Main heading for the page -->
 
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Register New Tutor</a>
+    </p>
+}
+
 <!--
     Assembles the table on the web page
 -->
@@ -78,8 +85,13 @@
                         @Html.DisplayFor(modelItem => item.Subject) <!-- Display Subject for the item -->
                     </td>
                     <td class="column-section">
+                        
                         <!-- Action links for Details -->
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        }
                     </td>
                 </tr>
             }

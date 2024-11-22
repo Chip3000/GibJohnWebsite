@@ -33,6 +33,13 @@
 
 <h1>Lessons</h1> <!-- Main heading for the page -->
 
+@if (User.Identity.IsAuthenticated && User.IsInRole("Tutor"))
+{
+    <p>
+        <a asp-action="Create">Create New Lesson</a>
+    </p>
+}
+
 <div class="rounded-rectangle">
     <!-- Container with rounded corners -->
     <table class="table">
@@ -72,7 +79,11 @@
                     </td>
                     <td class="column-section">
                         <!-- Action links for Details -->
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Tutor"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id">Remove</a>
+                        }
                     </td>
                 </tr>
             }
