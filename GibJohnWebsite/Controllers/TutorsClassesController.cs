@@ -21,7 +21,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: TutorsClasses
-        [Authorize]
+        [Authorize(Roles = "Student")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.TutorsClass.ToListAsync());
@@ -46,6 +46,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: TutorsClasses/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -68,6 +69,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: TutorsClasses/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -119,6 +121,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: TutorsClasses/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)

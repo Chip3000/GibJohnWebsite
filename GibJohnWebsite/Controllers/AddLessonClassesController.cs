@@ -21,7 +21,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: AddLessonClasses
-        [Authorize(Roles ="Student")]
+        [Authorize(Roles = "Student")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.AddLessonClass.ToListAsync());
@@ -46,6 +46,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: AddLessonClasses/Create
+        [Authorize(Roles = "Tutor")]
         public IActionResult Create()
         {
             return View();
@@ -68,6 +69,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: AddLessonClasses/Edit/5
+        [Authorize(Roles = "Tutor")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -120,6 +122,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: AddLessonClasses/Delete/5
+        [Authorize(Roles = "Tutor")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
