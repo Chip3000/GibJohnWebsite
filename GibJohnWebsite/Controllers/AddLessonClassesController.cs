@@ -21,7 +21,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: AddLessonClasses
-        [Authorize(Roles = "Student")]
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.AddLessonClass.ToListAsync());

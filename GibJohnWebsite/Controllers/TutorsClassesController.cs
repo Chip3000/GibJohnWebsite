@@ -21,7 +21,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: TutorsClasses
-        [Authorize(Roles = "Student")]
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.TutorsClass.ToListAsync());

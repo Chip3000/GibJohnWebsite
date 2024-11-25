@@ -79,7 +79,7 @@
                     </td>
                     <td class="column-section">
                         <!-- Action links for Details -->
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                         <!-- Checks database to see if the user is a tutor and then shows them a button if they are -->
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Tutor"))
                         {

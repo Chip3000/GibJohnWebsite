@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<GibJohnWebsite.Models.CoursesClass>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
 <style>
     /* Styling for the container with rounded corners */
     .rounded-rectangle {
@@ -91,14 +87,6 @@
 <div class="rounded-rectangle">
 
     <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
         <tbody class="table-body">
             <tr>
                 <td colspan="2">
@@ -108,8 +96,11 @@
                             <div class="column-section">
                                 @Html.DisplayFor(modelItem => item.Title)
                                 <br />
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Remove</a>
+                                }
                             </div>
                         }
                     </div>
