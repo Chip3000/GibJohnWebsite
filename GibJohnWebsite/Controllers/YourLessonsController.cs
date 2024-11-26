@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GibJohnWebsite.Data;
 using GibJohnWebsite.Models;
+using System.Security.Claims;
 
-namespace GibJohnWebsite.Views
+namespace GibJohnWebsite.Controllers
 {
     public class YourLessonsController : Controller
     {
@@ -18,6 +19,47 @@ namespace GibJohnWebsite.Views
         {
             _context = context;
         }
+
+        [HttpPost]
+        public IActionResult Attend(string id) // Use the Id directly
+        {
+            // Retrieve the lesson from the AddLessons table using the Id
+            var lesson = _context.AddLessonClass.Find(id);
+
+            if (lesson != null)
+            {
+                // Create a new entry in YourLessons
+                var yourLesson = new YourLessons
+                {
+                    Title = lesson.Title,
+                    Description = lesson.Description,
+                    Time = lesson.Time,
+                    Tutor = lesson.Tutor
+                };
+
+                // Check if the lesson is already in YourLessons to avoid duplicates
+                var existingLesson = _context.YourLessons.Find(yourLesson.Id);
+                if (existingLesson == null)
+                {
+                    // Add to the YourLessons table
+                    _context.YourLessons.Add(yourLesson);
+                    _context.SaveChanges();
+
+                    TempData["Message"] = "You have successfully attended the lesson.";
+                }
+                else
+                {
+                    TempData["Error"] = "You have already attended this lesson.";
+                }
+            }
+            else
+            {
+                TempData["Error"] = "The lesson could not be found.";
+            }
+
+            return RedirectToAction("Index"); // Redirect to the index or another view
+        }
+
 
         // GET: YourLessons
         public async Task<IActionResult> Index()

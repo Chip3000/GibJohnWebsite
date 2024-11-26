@@ -36,6 +36,12 @@
     </dl>
 </div>
 <div>
+    <form asp-controller="YourLessons" asp-action="Attend" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button type="submit" class="btn btn-primary">Attend</button>
+    </form>
+</div>
+<div>
     <a asp-action="Index">Back to List</a>
 
 </div>
