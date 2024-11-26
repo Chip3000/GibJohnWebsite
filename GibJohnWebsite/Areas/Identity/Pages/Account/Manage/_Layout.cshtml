@@ -18,7 +18,7 @@
         <div class="col-md-3">
             <partial name="_ManageNav" />
         </div>
-        <div class="col-md-9">
+        <div class="background_box">
             @RenderBody()
         </div>
     </div>
@@ -27,3 +27,24 @@
 @section Scripts {
     @RenderSection("Scripts", required: false)
 }
+
+
+<style>
+    .button {
+        background-color: #aab396;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+    }
+
+    .background_box {
+        background-color: #8e604a;
+        padding-right: 5px;
+        border-radius: 20px;
+        max-width: 50%;
+        padding: 10px;
+    }
+</style>

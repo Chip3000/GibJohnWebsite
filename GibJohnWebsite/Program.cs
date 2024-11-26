@@ -1,4 +1,5 @@
 ﻿using GibJohnWebsite.Data;
+using GibJohnWebsite.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,7 +37,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); // Must be before UseAuthorization
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -44,11 +45,12 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-// Create roles
+// Create roles and seed courses
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await SeedRoles(services);
+    await SeedCourses(services);
 }
 
 app.Run();
@@ -68,5 +70,25 @@ async Task SeedRoles(IServiceProvider serviceProvider)
             // Create the roles and seed them to the database
             roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
         }
+    }
+}
+
+async Task SeedCourses(IServiceProvider serviceProvider)
+{
+    var context = serviceProvider.GetRequiredService<GibJohnWebsiteContext>();
+
+    // Check if any courses exist
+    if (!context.CoursesClass.Any())
+    {
+        // Add initial courses
+        var courses = new List<CoursesClass>
+        {
+            new CoursesClass { Title = "English", Description = "Shakespeare?"},
+            new CoursesClass { Title = "Mathematics", Description = "Try and be einstein i suppose."},
+            new CoursesClass { Title = "Sciences", Description = "Learn to blow things up (probably)."}
+        };
+
+        context.CoursesClass.AddRange(courses);
+        await context.SaveChangesAsync();
     }
 }

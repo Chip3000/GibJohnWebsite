@@ -3,13 +3,92 @@
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
 <ul class="nav nav-pills flex-column">
-    <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+    <li class="nav-accountsettings"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
+    <li class="nav-accountsettings"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
+    <li class="nav-accountsettings"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
     @if (hasExternalLogins)
     {
-        <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
+        <li id="external-logins" class="nav-accountsettings"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
     }
-    <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
+    <li class="nav-accountsettings"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
+    <li class="nav-accountsettings"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
 </ul>
+
+<style>
+    #profile {
+        background-color: #aab396;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+        margin: 2px;
+    }
+
+    #email {
+        background-color: #aab396;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+        margin: 2px;
+    }
+
+    #change-password {
+        background-color: #aab396;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+        margin: 2px;
+    }
+
+    #external-login {
+        background-color: #aab396;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+        margin: 2px;
+    }
+
+    #two-factor {
+        background-color: #aab396;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+        margin: 2px;
+    }
+
+    #personal-data {
+        background-color: #aab396;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+        margin: 2px;
+    }
+
+    #profile {
+        background-color: #aab396;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+        margin: 2px;
+    }
+</style>

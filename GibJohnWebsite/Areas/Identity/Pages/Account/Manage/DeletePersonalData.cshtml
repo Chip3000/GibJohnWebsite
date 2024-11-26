@@ -24,10 +24,21 @@
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
         }
-        <button class="w-100 btn btn-lg btn-danger" type="submit">Delete data and close my account</button>
+        <button class="button" type="submit">Delete data and close my account</button>
     </form>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<style>
+    div > div > form > button {
+        background-color: #aab396 !important;
+        border-color: #919581 !important;
+        border-width: 4px !important;
+        border-style: solid !important;
+        padding: 10px 15px;
+        color: black;
+    }
+</style>

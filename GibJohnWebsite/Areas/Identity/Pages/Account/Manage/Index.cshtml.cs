@@ -58,6 +58,10 @@ namespace GibJohnWebsite.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Required]
+            [Display(Name = "New Username")]
+            public string NewUsername { get; set; }
         }
 
         private async Task LoadAsync(IdentityUser user)
@@ -69,7 +73,8 @@ namespace GibJohnWebsite.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                NewUsername = userName // Load the current username
             };
         }
 
@@ -99,6 +104,7 @@ namespace GibJohnWebsite.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
+            // Handle phone number change
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -107,6 +113,30 @@ namespace GibJohnWebsite.Areas.Identity.Pages.Account.Manage
                 {
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
+                }
+            }
+
+            // Handle username change
+            if (Input.NewUsername != user.UserName)
+            {
+                var userWithSameUsername = await _userManager.FindByNameAsync(Input.NewUsername);
+                if (userWithSameUsername != null)
+                {
+                    ModelState.AddModelError(string.Empty, "Username already exists.");
+                    await LoadAsync(user);
+                    return Page();
+                }
+
+                user.UserName = Input.NewUsername;
+                var updateResult = await _userManager.UpdateAsync(user);
+                if (!updateResult.Succeeded)
+                {
+                    foreach (var error in updateResult.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    await LoadAsync(user);
+                    return Page();
                 }
             }
 
