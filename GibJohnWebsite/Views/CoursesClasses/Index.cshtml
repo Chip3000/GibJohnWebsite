@@ -38,6 +38,7 @@
         flex: 1 1 calc(30% - 10px); /* Flex properties to allow responsive behavior */
         box-sizing: border-box; /* Include padding and border in the element's total width and height */
         text-align: center; /* Center the text */
+        border-radius: 5px; /* Rounded corners */
     }
 
     /* Background color for the column sections */
@@ -73,6 +74,18 @@
             width: 100%; /* Ensure full width */
             table-layout: fixed; /* Prevent table from growing */
         }
+
+    #courses-buttons{
+        background-color: #919581;
+        border-color: #919581;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        padding: 5px 10px;
+        color: black;
+        margin: 2px;
+        font-size: 20px;
+    }
 </style>
 
 <h1>Courses</h1>
@@ -96,10 +109,10 @@
                             <div class="column-section">
                                 @Html.DisplayFor(modelItem => item.Title)
                                 <br />
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a id="courses-buttons" asp-action="Details" asp-route-id="@item.Id">Details</a>
                                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                 {
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Remove</a>
+                                    <a id="courses-buttons" asp-action="Delete" asp-route-id="@item.Id">Remove</a>
                                 }
                             </div>
                         }
