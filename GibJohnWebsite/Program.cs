@@ -49,8 +49,11 @@ app.MapRazorPages();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    await RemoveOldLessons(services);
     await SeedRoles(services);
     await SeedCourses(services);
+    await SeedTutors(services);
+    await SeedLessons(services);
 }
 
 app.Run();
@@ -104,6 +107,64 @@ async Task SeedCourses(IServiceProvider serviceProvider)
         };
 
         context.CoursesClass.AddRange(courses);
+        await context.SaveChangesAsync();
+    }
+}
+
+async Task SeedTutors(IServiceProvider serviceProvider)
+{
+    var context = serviceProvider.GetRequiredService<GibJohnWebsiteContext>();
+
+    // Check if any courses exist
+    if (!context.TutorsClass.Any())
+    {
+        // Add initial courses
+        var tutors = new List<TutorsClass>
+        {
+            new TutorsClass { Name = "Luke Thompson", Email = "luke@macss.co.uk", PhoneNumber = "+77 392 341406", Subject = "Astrology"},
+            new TutorsClass { Name = "Kieran Edgeworth", Email = "ohimdead@example.com", PhoneNumber = "+77 819 432756", Subject = "Fitness Coaching"},
+            new TutorsClass { Name = "Julie Rosier", Email = "julierosier@example.com", PhoneNumber = "+77 123 456789", Subject = "IT: Software Development & IT: Cyber Security"},
+            new TutorsClass { Name = "Brandon White", Email = "brandonwhite@example.com", PhoneNumber = "+77 987 654321", Subject = "Fashion Design"}
+        };
+
+        context.TutorsClass.AddRange(tutors);
+        await context.SaveChangesAsync();
+    }
+}
+
+async Task SeedLessons(IServiceProvider serviceProvider)
+{
+    var context = serviceProvider.GetRequiredService<GibJohnWebsiteContext>();
+
+    // Check if any courses exist
+    if (!context.AddLessonClass.Any())
+    {
+        // Add initial courses
+        var lessons = new List<AddLessonClass>
+        {
+            new AddLessonClass { Title = "Astrology", Description = "In this lesson you will be learning about how the age of a star alters a solar system.", Time = DateTime.Now.AddDays(1), Tutor = "Luke Thompson"},
+            new AddLessonClass { Title = "Fitness Coaching", Description = "In this lesson you will learn how beats per minute (bpm) allows us to carry out endurance activities.", Time = DateTime.Now.AddDays(2), Tutor = "Kieran Edgeworth"},
+            new AddLessonClass { Title = "Software Development", Description = "In this lesson you will learn how to create a basic website with a login and sign up system.", Time = DateTime.Now.AddDays(3), Tutor = "Julie Rosier"},
+            new AddLessonClass { Title = "Fashion Design", Description = "In this lesson we will be virtually designing a prom dress from a clients brief.", Time = DateTime.Now.AddDays(4), Tutor = "Brandon White"}
+        };
+
+        context.AddLessonClass.AddRange(lessons);
+        await context.SaveChangesAsync();
+    }
+}
+
+async Task RemoveOldLessons(IServiceProvider serviceProvider)
+{
+    var context = serviceProvider.GetRequiredService<GibJohnWebsiteContext>();
+
+    // Find lessons where the Time is less than the current time
+    var oldLessons = await context.AddLessonClass
+        .Where(lesson => lesson.Time < DateTime.Now)
+        .ToListAsync();
+
+    if (oldLessons.Any())
+    {
+        context.AddLessonClass.RemoveRange(oldLessons);
         await context.SaveChangesAsync();
     }
 }

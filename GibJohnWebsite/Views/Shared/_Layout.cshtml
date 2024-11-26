@@ -77,6 +77,7 @@
     <!-- Render additional scripts if any -->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+</html>
 
 <style>
     /* Body styles */
@@ -123,7 +124,7 @@
         border-width: 4px !important; /* Border width for the button */
         border-style: solid !important; /* Solid border style for the button */
         padding: 10px 15px; /* Padding inside the button */
-        color: black; /* Text color for the button */
+        color: black !important; /* Text color for the button */
         position: relative; /* Set position to relative to allow z-index to work */
         z-index: 2; /* Higher z-index to ensure the button is above the logo */
     }
@@ -148,6 +149,7 @@
         max-width: 70%; /* Set a max width for the logo to be responsive */
         height: auto; /* Maintain aspect ratio of the logo */
         z-index: 1; /* Lower z-index to place it behind the button */
+        height: 150%;
     }
 
     @@media (max-width: 380px){
