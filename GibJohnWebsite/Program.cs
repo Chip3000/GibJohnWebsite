@@ -168,3 +168,19 @@ async Task RemoveOldLessons(IServiceProvider serviceProvider)
         await context.SaveChangesAsync();
     }
 }
+
+async Task RemoveOldPersonalLessons(IServiceProvider serviceProvider)
+{
+    var context = serviceProvider.GetRequiredService<GibJohnWebsiteContext>();
+
+    // Find lessons where the Time is less than the current time
+    var oldLessons = await context.YourLessons
+        .Where(lesson => lesson.Time < DateTime.Now)
+        .ToListAsync();
+
+    if (oldLessons.Any())
+    {
+        context.YourLessons.RemoveRange(oldLessons);
+        await context.SaveChangesAsync();
+    }
+}

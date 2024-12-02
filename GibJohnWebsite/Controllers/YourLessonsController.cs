@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GibJohnWebsite.Data;
 using GibJohnWebsite.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GibJohnWebsite.Controllers
 {
@@ -62,12 +63,14 @@ namespace GibJohnWebsite.Controllers
 
 
         // GET: YourLessons
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.YourLessons.ToListAsync());
         }
 
         // GET: YourLessons/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -86,6 +89,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: YourLessons/Create
+        [Authorize (Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -108,6 +112,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: YourLessons/Edit/5
+        [Authorize (Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -159,6 +164,7 @@ namespace GibJohnWebsite.Controllers
         }
 
         // GET: YourLessons/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)

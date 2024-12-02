@@ -30,6 +30,9 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li class="nav-item">
+                                    <a class="nav-link text-dark oval-button" asp-area="" asp-controller="YourLessons" asp-action="Index">Attended Lessons</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link text-dark oval-button" asp-area="" asp-controller="AddLessonClasses" asp-action="Index">Lessons</a>
                                 </li>
                                 <!-- Link to Add Tutor page -->
